@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import 'tailwindcss/tailwind.css';
-	  import CoinbaseLogo from '../lib/assets/logos/coinbase.svg';
+	import CoinbaseLogo from '../lib/assets/logos/coinbase.svg';
   import KrakenLogo from '../lib/assets/logos/kraken.svg';
   import FixerLogo from '../lib/assets/logos/fixer.svg';
   import LightnetLogo from '../lib/assets/logos/lightnet.svg';
@@ -10,7 +10,7 @@
   import FlutterwaveLogo from '../lib/assets/logos/flutterwave.svg';
 
 	let suportedCryptos = ['BTC', 'ETH', 'USDC', 'USDT', 'TRX'];
-	let selectedBaseCurrency = 'USD';
+	$: selectedBaseCurrency = 'USD';
 	let providerList: Array<ProviderData> = [];
 
 	type TickerData = {
@@ -82,13 +82,13 @@
 <form class="flex gap-4">
 	<label class="flex flex-col">
 		Base currency:
-		<select class="select select-info w-full max-w-xs">
+		<select class="select select-info w-full max-w-xs" bind:value={selectedBaseCurrency}>
 			<option disabled selected>Select base currency</option>
 			<option value="usd">USD</option>
 			<option value="sgd">SGD</option>
 		</select>
 	</label>
-	<label class="flex flex-col">
+	<!-- <label class="flex flex-col">
 		Destination currency:
 		<select class="select select-info w-full max-w-xs" disabled>
 			<option disabled selected>Select destination currency</option>
@@ -96,7 +96,7 @@
 				<option value={crypto}>{crypto}</option>
 			{/each}
 		</select>
-	</label>
+	</label> -->
 </form>
 
 <div class="overflow-x-auto">
@@ -106,9 +106,9 @@
 			<tr>
 				<th>Provider</th>
 				{#each suportedCryptos as crypto}
-					<th>{selectedBaseCurrency}/{crypto}</th>
+					<th>{selectedBaseCurrency.toUpperCase()}/{crypto}</th>
 				{/each}
-				<th>See history</th>
+				<th></th>
 			</tr>
 		</thead>
 		<tbody>
@@ -153,7 +153,7 @@
 			<tr>
 				<th>Provider</th>
 				{#each suportedCryptos as crypto}
-					<th>{selectedBaseCurrency}/{crypto}</th>
+					<th>{selectedBaseCurrency.toUpperCase()}/{crypto}</th>
 				{/each}
 				<th>See history</th>
 			</tr>
