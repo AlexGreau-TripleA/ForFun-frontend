@@ -12,7 +12,22 @@ npm create svelte@latest
 
 # create a new project in my-app
 npm create svelte@latest my-app
+
+# install dependencies
+npm i
+
+# run to check if everything is working
+npm run dev
+
 ```
+## Add Daisy UI
+
+[Daisy UI Tutorial on how to add](https://daisyui.com/blog/how-to-install-sveltekit-and-daisyui/)
+```bash 
+# add Tailwind + Daisy UI
+npm install -D tailwindcss postcss autoprefixer daisyui
+```
+
 
 ## Developing
 
