@@ -25,8 +25,8 @@ npm run dev
 
 [Daisy UI Tutorial on how to add](https://daisyui.com/blog/how-to-install-sveltekit-and-daisyui/)
 ```bash 
-# add Tailwind + Daisy UI
-npm install -D tailwindcss postcss autoprefixer daisyui
+# add Tailwind + Daisy UI + tailwind-typography
+npm install -D tailwindcss postcss autoprefixer daisyui @tailwindcss/typography
 ```
 ```bash
 npx tailwindcss init -p
