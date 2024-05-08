@@ -101,9 +101,9 @@
       <option value="sgd">SGD</option>
     </select>
   </label>
-  <label class="flex flex-col ">
+  <label class="flex flex-col">
     Destination currency:
-    <select class="select select-info w-full max-w-xs">
+    <select class="select select-info w-full max-w-xs" disabled>
       <option disabled selected>Select destination currency</option>
       {#each suportedCryptos as crypto}
         <option value={crypto}>{crypto}</option>
