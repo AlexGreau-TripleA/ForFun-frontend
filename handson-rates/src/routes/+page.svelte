@@ -84,6 +84,7 @@
   ];
 
   // Fetch latest rates
+
 </script>
 
 <h1>Welcome to Triple-A !</h1>
@@ -91,17 +92,19 @@
 <!-- Search for a rate -->
 
 <!-- List of rates -->
-<form>
-  <label>
-    Base Currency:
-    <select>
+<form class="flex gap-4">
+  <label class="flex flex-col">
+    Base currency:
+    <select class="select select-info w-full max-w-xs">
+      <option disabled selected>Select base currency</option>
       <option value="usd">USD</option>
       <option value="sgd">SGD</option>
     </select>
   </label>
-  <label>
-    Crypto Currency:
-    <select>
+  <label class="flex flex-col ">
+    Destination currency:
+    <select class="select select-info w-full max-w-xs">
+      <option disabled selected>Select destination currency</option>
       {#each suportedCryptos as crypto}
         <option value={crypto}>{crypto}</option>
       {/each}
@@ -154,3 +157,8 @@
     </tfoot>
   </table>
 </div>
+<style>
+  form {
+
+  }
+</style>
