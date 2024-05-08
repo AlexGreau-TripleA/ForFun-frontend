@@ -100,6 +100,7 @@
 </form>
 
 <div class="overflow-x-auto">
+	
 	<table class="table">
 		<!-- head -->
 		<thead>
@@ -155,7 +156,6 @@
 				{#each suportedCryptos as crypto}
 					<th>{selectedBaseCurrency.toUpperCase()}/{crypto}</th>
 				{/each}
-				<th>See history</th>
 			</tr>
 		</tfoot>
 	</table>
