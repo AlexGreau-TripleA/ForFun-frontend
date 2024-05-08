@@ -95,9 +95,8 @@
   <label>
     Base Currency:
     <select>
-      <option value="USD">USD</option>
-      <option value="EUR">EUR</option>
-      <option value="JPY">JPY</option>
+      <option value="usd">USD</option>
+      <option value="sgd">SGD</option>
     </select>
   </label>
   <label>
@@ -123,31 +122,6 @@
       </tr>
     </thead>
     <tbody>
-      <!-- row 1 -->
-      <tr>
-        <td>
-          <div class="flex items-center gap-3">
-            <div class="avatar">
-              <div class="mask mask-squircle w-12 h-12">
-                <img src="https://img.daisyui.com/tailwind-css-component-profile-3@56w.png" alt="Avatar Tailwind CSS Component" />
-              </div>
-            </div>
-            <div>
-              <div class="font-bold">Brice Swyre</div>
-              <div class="text-sm opacity-50">China</div>
-            </div>
-          </div>
-        </td>
-        <td>
-          Carroll Group
-          <br/>
-          <span class="badge badge-ghost badge-sm">Tax Accountant</span>
-        </td>
-        <td>Red</td>
-        <th>
-          <button class="btn btn-ghost btn-xs">details</button>
-        </th>
-      </tr>
       <!-- Providers -->
       {#each providerList as provider}
         <tr>
@@ -160,7 +134,9 @@
             {provider.name}
           </td>
           {#each Object.entries(provider.rates) as [currency, rate]}
-            <td>{currency} {rate}</td>
+            <td>{currency} {rate}
+                <span class="badge badge-ghost badge-sm">-</span>
+            </td>
           {/each}
           <td><button class="btn secondary">See history</button></td>
         </tr>
