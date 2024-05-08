@@ -1,6 +1,13 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import 'tailwindcss/tailwind.css';
+	  import CoinbaseLogo from '../lib/assets/logos/coinbase.svg';
+  import KrakenLogo from '../lib/assets/logos/kraken.svg';
+  import FixerLogo from '../lib/assets/logos/fixer.svg';
+  import LightnetLogo from '../lib/assets/logos/lightnet.svg';
+  import DlocalLogo from '../lib/assets/logos/dlocal.svg';
+  import MainsysLogo from '../lib/assets/logos/mainsys.svg';
+  import FlutterwaveLogo from '../lib/assets/logos/flutterwave.svg';
 
 	let suportedCryptos = ['BTC', 'ETH', 'USDC', 'USDT', 'TRX'];
 	let selectedBaseCurrency = 'USD';
@@ -73,23 +80,23 @@
 
 <!-- List of rates -->
 <form class="flex gap-4">
-  <label class="flex flex-col">
-    Base currency:
-    <select class="select select-info w-full max-w-xs">
-      <option disabled selected>Select base currency</option>
-      <option value="usd">USD</option>
-      <option value="sgd">SGD</option>
-    </select>
-  </label>
-  <label class="flex flex-col">
-    Destination currency:
-    <select class="select select-info w-full max-w-xs" disabled>
-      <option disabled selected>Select destination currency</option>
-      {#each suportedCryptos as crypto}
-        <option value={crypto}>{crypto}</option>
-      {/each}
-    </select>
-  </label>
+	<label class="flex flex-col">
+		Base currency:
+		<select class="select select-info w-full max-w-xs">
+			<option disabled selected>Select base currency</option>
+			<option value="usd">USD</option>
+			<option value="sgd">SGD</option>
+		</select>
+	</label>
+	<label class="flex flex-col">
+		Destination currency:
+		<select class="select select-info w-full max-w-xs" disabled>
+			<option disabled selected>Select destination currency</option>
+			{#each suportedCryptos as crypto}
+				<option value={crypto}>{crypto}</option>
+			{/each}
+		</select>
+	</label>
 </form>
 
 <div class="overflow-x-auto">
@@ -108,17 +115,31 @@
 			<!-- Providers -->
 			{#each providerList as provider}
 				<tr>
-					<td>
+					<td class="flex items-center gap-2">
 						<div class="avatar">
 							<div class="mask mask-squircle w-12 h-12">
-								<img src={provider.logoPath} alt="Avatar {provider.name}" />
+								{#if provider.name === 'Coinbase'}
+									<img src={CoinbaseLogo} alt="{provider.name} avatar" class="m-0"/>
+                {:else if provider.name === 'Kraken'}
+                  <img src={KrakenLogo} alt="{provider.name} avatar" class="m-0"/>
+                {:else if provider.name === 'Fixer'}
+                  <img src={FixerLogo} alt="{provider.name} avatar" class="m-0"/>
+                {:else if provider.name === 'Lightnet'}
+                  <img src={LightnetLogo} alt="{provider.name} avatar" class="m-0"/>
+                {:else if provider.name === 'dlocal'}
+                  <img src={DlocalLogo} alt="{provider.name} avatar" class="m-0"/>
+                {:else if provider.name === 'mainsys'}
+                  <img src={MainsysLogo} alt="{provider.name} avatar" class="m-0"/>
+                {:else if provider.name === 'Flutterwave'}
+                  <img src={FlutterwaveLogo} alt="{provider.name} avatar" class="m-0"/>
+								{/if}
 							</div>
 						</div>
-						{provider.name}
+            {provider.name}
 					</td>
 					{#each Object.entries(provider.rates) as [currency, rate]}
-						<td
-							>{currency}
+						<td>
+							{currency}
 							{rate}
 							<span class="badge badge-ghost badge-sm">-</span>
 						</td>
