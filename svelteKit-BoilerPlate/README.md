@@ -1,4 +1,4 @@
-# create-svelte
+# Svelte kit starting pack
 
 Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
 
@@ -37,11 +37,16 @@ Then generate tailwind.config.js and postcss.config.js files:
 ```js
 /** @type {import('tailwindcss').Config} */
 export default {
- content: ['./src/**/*.{html,svelte,js,ts}'],
- theme: {
-   extend: {},
- },
- plugins: [require('daisyui')],
+  content: ['./src/**/*.{html,svelte,js,ts}'],
+  theme: {
+    extend: {},
+  },
+  plugins: [require("@tailwindcss/typography"), require('daisyui')],
+  daisyui: {
+    themes : [
+      'cupcake'
+    ]
+  }
 }
 ```
 
