@@ -28,6 +28,9 @@ npm run dev
 # add Tailwind + Daisy UI
 npm install -D tailwindcss postcss autoprefixer daisyui
 ```
+```bash
+npx tailwindcss init -p
+```
 
 Install Tailwind CSS, PostCSS, Autoprefixer and daisyUI,
 Then generate tailwind.config.js and postcss.config.js files:
