@@ -12,6 +12,7 @@ npm create svelte@latest
 
 # create a new project in my-app
 npm create svelte@latest my-app
+# choose boiler plate, and by default vite, playwright, prettier, ESlint
 
 # install dependencies
 npm i
@@ -26,6 +27,37 @@ npm run dev
 ```bash 
 # add Tailwind + Daisy UI
 npm install -D tailwindcss postcss autoprefixer daisyui
+```
+
+Install Tailwind CSS, PostCSS, Autoprefixer and daisyUI,
+Then generate tailwind.config.js and postcss.config.js files:
+```js
+/** @type {import('tailwindcss').Config} */
+export default {
+ content: ['./src/**/*.{html,svelte,js,ts}'],
+ theme: {
+   extend: {},
+ },
+ plugins: [require('daisyui')],
+}
+```
+
+Add the following lines to svelte.config.js file, if not already setup at the creation step :
+```js
+import adapter from '@sveltejs/adapter-auto';
+import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
+/** @type {import('@sveltejs/kit').Config} */
+const config = {
+ preprocess: vitePreprocess(),
+ kit: {
+   // adapter-auto only supports some environments, see https://kit.svelte.dev/docs/adapter-auto for a list.
+   // If your environment is not supported or you settled on a specific environment, switch out the adapter.
+   // See https://kit.svelte.dev/docs/adapters for more information about adapters.
+   adapter: adapter()
+ }
+};
+
+export default config;
 ```
 
 
